@@ -8,6 +8,7 @@ pequenas informações sequenciais, como IP do roteador, IP do alvo e interface 
 Após o download do arquivo, navegue pelo terminal do seu sistema até onde se encontra o scrip "mitm.sh",
 em seguida de as permissões de execução com "chmod +x mitm.sh".
 Feito isso e estando no mesmo diretório que o script se encontra, é só executa-lo "./mitm.sh"
+
 (as aspas em nenhum dos casos são necessárias)
 
 
