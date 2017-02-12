@@ -11,6 +11,9 @@ Feito isso e estando no mesmo diretório que o script se encontra, é só execut
 
 (as aspas em nenhum dos casos são necessárias)
 
+Caso o script não reconheça suas interfaces de rede você mesmo poderá realizar essa mudança diretamente
+no código fonte, trocando as interfaces padrão "eth0" e "wlan0" pelas suas interfaces utilizadas.
+
 
 Fique avontade para contribuir e aperfeiçoar essa ferramenta. :)
 
