@@ -1,5 +1,5 @@
 # Man-in-the-middle
-O ataque MITM trabalha encima da captura de dados descriptografados e URL's que trafegam em toda
+O ataque MITM trabalha com captura de dados descriptografados e URL's que trafegam em toda
 rede ou em alvos especificos.
 Esse pequeno script de rápida execução facilitará esse tipo de ataque apenas com a obtenção de 
 pequenas informações sequenciais, como IP do roteador, IP do alvo e interface de rede utilizada.
