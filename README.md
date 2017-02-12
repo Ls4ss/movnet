@@ -14,6 +14,8 @@ Feito isso e estando no mesmo diretório que o script se encontra, é só execut
 Caso o script não reconheça suas interfaces de rede você mesmo poderá realizar essa mudança diretamente
 no código fonte, trocando as interfaces padrão "eth0" e "wlan0" pelas suas interfaces utilizadas.
 
+Após a execução com sucesso, o script realizará uma analise para verificar e realizar os downloads dos pacotes necessários, não se preocupe, são pacotes totalmentes seguros e confiaveis. Em seguida, é só seguir os passos e inserir os dados solicitados no seu terminal.
+
 
 Fique avontade para contribuir e aperfeiçoar essa ferramenta. :)
 
