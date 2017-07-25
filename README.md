@@ -10,13 +10,13 @@ básicos para iniciar o ataque.
 
 Esse script está aberto a modificações quaisquer para a melhoria da coleta na execução do ataque
 -------------------------------------------------------------------------------------------------------------
-*********************************************INSTALAÇÂO******************************************************
+--------------------------------------------INSTALAÇÂO-------------------------------------------------------
     Para a execução do script basta dar permissão de execução ao script "install.sh" com "chmod +x install.sh"
 em seguida executar esse script com ./install.sh
     Esses comandos darão as permissões necessárias para toda base de scripts envolvidos durante o ataque.
 Nas execuções seguintes do script, basta iniciar com "mitm.sh"
 -------------------------------------------------------------------------------------------------------------
-**********************************************CRÉDITOS*******************************************************
+---------------------------------------------CRÉDITOS-------------------------------------------------------
 Automatização desenvolvida por: Lucas Silva
 Twitter: @gl1tc
 
