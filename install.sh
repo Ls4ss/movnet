@@ -7,7 +7,7 @@ chmod +x alvo.sh
 sleep 1
 echo "*Copiando arquivos"
 sleep 1
-cp mitm.sh /bin
+cp monet.sh /bin
 cp alvo.sh /bin
 echo "*Instalação Concluida"
 echo "*Deseja iniciar o script s/n?"
