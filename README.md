@@ -1,5 +1,5 @@
-# mitm
- Automation in MITM attacks
+# MONET
+ Movement On network
  
 Automatização em coleta de informações na rede por ataque MAN-IN-THE-MIDDLE
 
@@ -22,5 +22,4 @@ Nas execuções seguintes do script, basta iniciar com "mitm.sh"
 
 -------------------------------------------------------------------------------------------------------------
 
-Automatização desenvolvida por: Lucas Silva
-Twitter: @gl1tc
+Automatização desenvolvida por: @TH3K1LL4
