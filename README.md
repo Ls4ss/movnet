@@ -1,7 +1,7 @@
 # MONET
  Movement On network
  
-MAN-IN-THE-MIDDLE Automation in collecting information on the network by attack
+Automation in collecting information on the network by MAN-IN-THE-MIDDLE attack
 
 -------------------------------------------------- -------------------------------------------------- ---------
  
