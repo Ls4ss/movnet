@@ -20,10 +20,10 @@ then run the install script with "./install.sh"
  
 In the following executions of the script, just start with "monet.sh"
  
-Automatização em coleta de informações na rede por ataque MAN-IN-THE-MIDDLE
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------
+Automatização em coleta de informações na rede por ataque MAN-IN-THE-MIDDLE
 -------------------------------------------------------------------------------------------------------------
  
  Ao executar esse script ele iniciará uma busca das ferramentas essênciais
