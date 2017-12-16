@@ -1,4 +1,4 @@
 #!/bin/bash
-cat alvo.txt
+cat log.txt
 sleep 1
 ./target.sh
