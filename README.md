@@ -14,12 +14,8 @@ to start the attack.
 ---------------------------------------------------------------------------------------------------------------
 
 Install
-
-   To execute the script, just give the script "install.sh" permission with "chmod + x install.sh"
-then run the install script with "./install.sh"
-   This script will give the necessary permissions to any scripts involved during the attack.
- 
-In the following executions of the script, just start with "monet.sh"
+ To execute the attack, just give the scripts "movnet.sh" and "target.sh" permission with "chmod + x "script.sh"
+then run the script with "./movnet.sh".
  
 -------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
@@ -36,12 +32,9 @@ básicos para iniciar o ataque.
 -------------------------------------------------------------------------------------------------------------
 
 Instalação
-
- Para a execução do script basta dar permissão de execução ao script "install.sh" com "chmod +x install.sh"
-em seguida executa-lo com "./install.sh"
- Esse script dará as permissões necessárias para toda base de scripts envolvidos durante o ataque.
- 
-Nas execuções seguintes do script, basta iniciar com "monet.sh"
+Instalar
+  Para executar o ataque, basta dar aos scripts "movnet.sh" e "target.sh" permissão com "chmod + x "script.sh"
+em seguida, execute o script com "./movnet.sh".
 
 -------------------------------------------------------------------------------------------------------------
 
