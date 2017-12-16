@@ -1,4 +1,4 @@
 #!/bin/bash
-cat alvo.txt
+cat url.txt
 sleep 1
-alvo.sh
+./alvo.sh
