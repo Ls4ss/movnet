@@ -2,7 +2,7 @@
 #--------------------------------------------------------------------------------------------------------------
                             #Verificação do tipo de usuário, se é root ou não.
 
-[ $(id -u) -ne 0 ] && { echo -e "root?"; sudo mitm.sh ; exit ;} || echo -e "Ok"
+[ $(id -u) -ne 0 ] && { echo -e "Do you not root"; sudo ./movnet.sh; exit ;} || echo -e "I'm root!"
 #--------------------------------------------------------------------------------------------------------------
                            #aqui inicia a verificação de pacotes para instalação
 
@@ -17,7 +17,7 @@ if [ -n "$pacote" ] ;
      echo -e "Ettercap ----------------------------- Nao instalado\n"
      echo "A aplicação ettercap-text-only será instalado, tecle [ENTER] para continuar."
      read
-     sudo apt-get install ettercap-text-only
+     apt-get install ettercap-text-only
 fi
 pacote=$(dpkg --get-selections | grep dsniff )
 if [ -n "$pacote" ] ;
@@ -27,7 +27,7 @@ if [ -n "$pacote" ] ;
      echo -e "Urlsnarf ----------------------------- Nao instalado\n"
      echo "A aplicação Urlsnarf será instalado, tecle [ENTER] para continuar."
      read
-     sudo apt-get install dsniff
+     apt-get install dsniff
 fi
 pacote=$(dpkg --get-selections | grep driftnet ) 
 if [ -n "$pacote" ] ;
@@ -37,7 +37,7 @@ if [ -n "$pacote" ] ;
      echo -e "Driftnet ----------------------------- Nao instalado\n"
      echo "A aplicação Driftnet será instalado, tecle [ENTER] para continuar."
      read
-     sudo apt-get install driftnet
+     apt-get install driftnet
 fi
 pacote=$(dpkg --get-selections | grep figlet )
 if [ -n "$pacote" ] ;
@@ -47,7 +47,7 @@ if [ -n "$pacote" ] ;
      echo -e "Figlet ----------------------------- Nao instalado\n"
      echo "A aplicação Figlet será instalado, tecle [ENTER] para continuar."
      read
-     sudo apt-get install figlet
+     apt-get install figlet
 fi
 pacote=$(dpkg --get-selections | grep dialog )
 if [ -n "$pacote" ] ;
@@ -57,7 +57,7 @@ if [ -n "$pacote" ] ;
      echo -e "Dialog ----------------------------- Nao instalado\n"
      echo "A aplicação Dialog será instalado, tecle [ENTER] para continuar."
      read
-     sudo apt-get install dialog
+     apt-get install dialog
 fi
 clear
 
