@@ -13,7 +13,7 @@ to start the attack.
 
 ---------------------------------------------------------------------------------------------------------------
 
-##Install
+##installation
 
  To execute the attack, just give the permission the scripts "movnet.sh" and "target.sh" with "chmod + x "script.sh"
 then run the script with "./movnet.sh".
