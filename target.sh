@@ -1,4 +1,4 @@
 #!/bin/bash
-cat log.txt
+cat logs/urlsnarf.log
 sleep 1
 ./target.sh

