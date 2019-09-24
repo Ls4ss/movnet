@@ -57,7 +57,7 @@ clear
 sleep 1
 figlet "         MOVNET"
 echo "                Movement On network"
-echo -e "Dev: @corjacrew\n"
+echo -e "Dev: github.com/shskull\n"
 echo "------------------------------------------"
     echo
     echo -n "Find the IP of the target router, y/n? "
