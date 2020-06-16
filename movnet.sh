@@ -99,7 +99,7 @@ if [ "$v0" = y ] ;
     clear
     figlet "         MOVNET"
 echo "                Movement On network"
-echo -e "Dev: @shskull\n"
+echo -e "Dev: @lucxs.souza - SkullSec\n"
 echo -e "***********************************************************"
 echo -e "*                                                         *"
 echo -e "*              Press CTRL+C to stop!                      *"
@@ -112,7 +112,7 @@ sleep 1
     clear
 figlet "         MOVNET"
 echo "                Movement On network"
-echo -e "Dev: @shskull\n"
+echo -e "Dev: @lucxs.souza - SkullSec\n"
 echo -e "***********************************************************"
 echo -e "*                        HACKED                           *"
 echo -e "***********************************************************"
@@ -128,7 +128,7 @@ exit
     clear
     figlet "         MOVNET"
 echo "                Movement On network"
-echo -e "Dev: @shskull\n"
+echo -e "Dev: @lucxs.souza - SkullSec\n"
 echo -e "***********************************************************"
 echo -e "*                                                         *"
 echo -e "*              Press CTRL+C to stop!                      *"
@@ -141,7 +141,7 @@ sleep 1
     clear
 figlet "         MOVNET"
 echo "                Movement On network"
-echo -e "Dev: @shskull\n"
+echo -e "Dev: @lucxs.souza - SkullSec\n"
 echo -e "***********************************************************"
 echo -e "*                        HACKED                           *"
 echo -e "***********************************************************"
