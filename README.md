@@ -39,4 +39,4 @@ em seguida, execute o script com "./movnet.sh".
 
 -------------------------------------------------------------------------------------------------------------
 
-@skull.security
+@lucxs.souza - SkullSec
